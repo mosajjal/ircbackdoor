@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 
-import sys
+# Alireza Mosajjal's Code. This is just a PoC, and it comes with no warranty or anything.
+# Use it at your own risk. it MUST NOT be used in a production environment or anything other than testing. 
+# PLEASE respect other people's privacy. Only tested on Linux BTW
+
+import os
 import socket
 import string
+import sys
+import time
 
 HOST = "chat.freenode.net" # You can change this to whatever you want
 PORT = 6667
