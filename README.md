@@ -9,4 +9,5 @@ I used a "Echo" code for starting the work. Going for pure Python3 with socket r
 # Future Plan
 
 1) Actually doing the job LOL
+
 2) Adding PGP security to backdoors rather than SSL
