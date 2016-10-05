@@ -26,5 +26,5 @@ What else do you want? :-P
 
 # Relative Projects
 
-[Gcat](https://github.com/byt3bl33d3r/gcat), which uses Gmail as backend
-[Twittor](https://github.com/PaulSec/twittor), A fully featured backdoor that uses Twitter as a C&C server
+* [Gcat](https://github.com/byt3bl33d3r/gcat), which uses Gmail as backend
+* [Twittor](https://github.com/PaulSec/twittor), A fully featured backdoor that uses Twitter as a C&C server
