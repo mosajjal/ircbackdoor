@@ -21,3 +21,10 @@ What else do you want? :-P
 4) Sending back command responses in a text file
 
 5) A lot more... 
+
+
+
+# Relative Projects
+
+[Gcat](https://github.com/byt3bl33d3r/gcat), which uses Gmail as backend
+[Twittor](https://github.com/PaulSec/twittor), A fully featured backdoor that uses Twitter as a C&C server
