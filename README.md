@@ -22,7 +22,7 @@ What else do you want? :-P
 
 5) A lot more... 
 
-
+* looks like Sending files/scripts and all [DCC](https://en.wikipedia.org/wiki/Direct_Client-to-Client) connections are a bit "too P2P" for a backdoor. So I'm staying out of it to find a better replacement for that feautre. Although if you have a root backdoor there's SO MUCH you can do. I mean you might not even need these features. Again, use responsibly ;-)
 
 # Relative Projects
 
