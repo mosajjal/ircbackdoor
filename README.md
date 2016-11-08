@@ -28,3 +28,9 @@ What else do you want? :-P
 
 * [Gcat](https://github.com/byt3bl33d3r/gcat), which uses Gmail as backend
 * [Twittor](https://github.com/PaulSec/twittor), A fully featured backdoor that uses Twitter as a C&C server
+
+# Notes
+
+* Fork me, star me, give me pull requests, whatever but I think you shouldn't clone my repo for your use. It's only one file. Just copy it !
+
+* Take a look at the code. Half (all?) the help and documentaiton is in there
