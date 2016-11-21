@@ -33,6 +33,7 @@ s.send(bytes("JOIN #%s \r\n" % (CHANNEL), "UTF-8"))
 # starts a conversation with the 'master' when joining
 s.send(bytes("PRIVMSG %s :Hello Master :) Tell me commands to do \r\n" % MASTER, "UTF-8"))
 
+# TODO: Error handling and freeze detection
 while True:
     readbuffer = readbuffer+s.recv(1024).decode("UTF-8")
     temp = str.split(readbuffer, "\n")
