@@ -7,8 +7,8 @@ I used a "Echo" code for starting the work. Going for pure Python3 with socket r
 
 # Working Right Now
 
-Sending Commands through the IRC channel and get back stdout and stderr in there.
-What else do you want? :-P
+Sending Commands through the IRC channel and get back stdout and stderr in there. 
+NOT WORKING: canceling commands such as ping etc. 
 
 # Future Plan
 
@@ -31,6 +31,6 @@ What else do you want? :-P
 
 # Notes
 
-* Fork me, star me, give me pull requests, whatever but I think you shouldn't clone my repo for your use. It's only one file. Just copy it !
+* Fork me, star me, give me pull requests
 
 * Take a look at the code. Half (all?) the help and documentaiton is in there
