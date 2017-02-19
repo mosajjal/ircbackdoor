@@ -28,6 +28,7 @@ NOT WORKING: canceling commands such as ping etc.
 
 * [Gcat](https://github.com/byt3bl33d3r/gcat), which uses Gmail as backend
 * [Twittor](https://github.com/PaulSec/twittor), A fully featured backdoor that uses Twitter as a C&C server
+ * Also checkout [BasicRAT](https://github.com/vesche/basicRAT), "python remote access trojan"
 
 # Notes
 
