@@ -20,6 +20,8 @@ NOT WORKING: canceling commands such as ping etc.
 
 4) Sending back command responses in a text file
 
+5) Error handling and freeze/timeout detection
+
 5) A lot more... 
 
 * looks like Sending files/scripts and all [DCC](https://en.wikipedia.org/wiki/Direct_Client-to-Client) connections are a bit "too P2P" for a backdoor. So I'm staying out of it to find a better replacement for that feature. Although if you have a root backdoor there's SO MUCH you can do. I mean you might not even need file transfer/script features. Again, use responsibly ;-)
