@@ -12,6 +12,8 @@ NOT WORKING: canceling commands such as ping etc.
 
 # Future Plan
 
+First, this entire backdoor is going to be re-written with Asyncio 
+
 1) Sending multi-line commands and bash scripts
 
 2) Adding PGP security to backdoors rather than SSL
