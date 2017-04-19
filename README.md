@@ -3,16 +3,16 @@ A Proof of Concept (PoC) IRC backdoor written in Python3
 
 First off, don't look at it as a backdoor, look at it as a software to manage your clients from an IRC channel. I know this looks bad but it can actually do some good ;)
 
-I used a "Echo" code for starting the work. Going for pure Python3 with socket rather than using existing IRC clients for Python. I figured this is much more clean and easy to use.
+I used a "Echo" code for starting the work. Going for pure Python3 with socket rather than using existing IRC clients for Python. I figured this is much cleaner and easier to use.
 
 # Working Right Now
 
 Sending Commands through the IRC channel and get back stdout and stderr in there. 
-NOT WORKING: canceling commands such as ping etc. 
+NOT WORKING: canceling commands such as ping etc. So be careful when issuing commands.
 
 # Future Plan
 
-First, this entire backdoor is going to be re-written with Asyncio 
+First, this entire backdoor is going to be re-written with Asyncio (partially done)
 
 1) Sending multi-line commands and bash scripts
 
