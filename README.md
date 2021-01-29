@@ -1,6 +1,6 @@
 # A Python3 IRC backdoor
 A Proof of Concept (PoC) IRC backdoor written in Python3
-NOT CONTINUED AS WE SPEAK
+NOT CONTINUED -- A re-write of this in a more lightweight language might be in the works :) 
 
 First off, don't look at it as a backdoor; look at it as a software to manage your clients from an IRC channel. I know this looks bad but it can actually do some good ;)
 
